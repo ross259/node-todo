@@ -69,15 +69,6 @@ describe ('GET /todos',()=>{
             expect(res.body.todos.length).toBe(seedTodos.length);
         })
         .end(done);
-        // .end((err, res)=>{
-        //     if (err){
-        //         return done(err);
-        //     }
-        //     Todo.find().then((todos)=>{
-        //         expect (todos.length).toBe(seedTodos.length);
-        //         done();
-        //     }).catch((e)=>done(e));
-        // });
     });
 
 });
