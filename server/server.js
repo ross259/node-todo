@@ -7,7 +7,7 @@ var {mongoose} = require('./db/mongoose');
 var {Todo} = require('./models/todo');
 var {User} = require('./models/user');
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 var app = express();
 app.use(bodyParser.json());
