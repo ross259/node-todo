@@ -1,3 +1,5 @@
+require('./config/config');
+
 const _ = require('lodash');
 
 const express = require ('express');
@@ -9,7 +11,7 @@ const {mongoose} = require('./db/mongoose');
 const {Todo} = require('./models/todo');
 const {User} = require('./models/user');
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT;
 
 var app = express();
 app.use(bodyParser.json());
@@ -46,7 +48,7 @@ app.get('/todos/:id',(req, res)=>{
     });
 });
 
-app.delete('/todos/:id',(req,res)=>{
+app.delete('/todos/:id', (req,res)=>{
     var id=req.params.id;
     if (!ObjectID.isValid(id)){
         return res.sendStatus(404);
