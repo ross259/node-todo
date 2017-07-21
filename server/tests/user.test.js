@@ -14,7 +14,7 @@ describe ('GET /users/me', ()=>{
     it ('should return user if authenticated',(done)=>{
         request(app)
         .get('/users/me')
-        .set('x-auth', seedUsers[0].tokens[0].token )
+        .set('x-auth', seedUsers[0].tokens[0].token)
         .expect(200)
         .expect((res)=>{
             expect (res.body._id).toBe(seedUsers[0]._id.toHexString());
@@ -100,7 +100,7 @@ describe ('POST /users/login', () =>{
                 return done(err);
             }
             User.findById(seedUsers[1]._id).then((user)=>{
-                expect(user.tokens[0]).toInclude({
+                expect(user.tokens[1]).toInclude({
                     access:'auth',
                     token:res.headers['x-auth']
                 });
@@ -122,7 +122,7 @@ describe ('POST /users/login', () =>{
                 return done(err);
             }
             User.findById(seedUsers[1]._id).then((user)=>{
-                expect(user.tokens.length).toBe(0);
+                expect(user.tokens.length).toBe(1);
                 done();
             }).catch((e)=>done(e));
         });
