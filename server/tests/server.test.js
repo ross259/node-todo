@@ -7,7 +7,6 @@ const {Todo} = require ('../models/todo');
 
 const {seedTodos, seedUsers, populateTodos, populateUsers} = require('./seed/seed');
 
-
 beforeEach(populateTodos, populateUsers);
 
 // REST METHODS
